@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "gulp": "./node_modules/.bin/gulp",
-    "install": "gulp make",
     "test": "gulp test",
     "shitpost": "gulp shitpost"
   },
