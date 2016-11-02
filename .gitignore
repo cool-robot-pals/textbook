@@ -1,11 +1,7 @@
 node_modules/*
-
-.DS_Store
-
-build/textbook/public/*
-
-build/textbook/public/index.png
-
 npm-debug.log
 
-build/public/index.jpeg
+build/public/*
+build/public/!.exists
+
+.DS_Store
