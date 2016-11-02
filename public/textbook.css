@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Prociono|Roboto|Anton');
+
+body {
+	background: #000;
+	-webkit-font-smoothing: antialiased;
+}
+
+body, body * {
+	display: block;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+textbook {
+	display:block;
+	width: 800px;
+	height: 1100px;
+	background: #fff;
+	position: relative;
+	overflow: hidden;;
+}
+
+textbook > * {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	-webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+textbook bg, textbook bg2 {
+	background-color: #fff;
+	background-size: cover;
+	background-position: center center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+textbook.l6 {
+	font-family: montserrat;
+	background: #222;
+	color: #fff;
+}
+
+textbook.l6 bg,
+textbook.l6 bg2 {
+	border-radius: 100%;
+	width: 1000px;
+	height: 1000px;
+	left: -100px
+}
+
+textbook.l6 title {
+	top: 35%;
+	bottom: 35%;
+	display: flex;
+	align-items: center;
+	padding: 0 5%;
+	font-size: 100px;
+}
+
+textbook.l6 author {
+	text-align: center;
+	color: #222;
+	top: auto;
+	bottom: 5%;
+}
+
+textbook.l6 bg {
+	top: -55%;
+}
+
+textbook.l6 bg2 {
+	bottom: -55%;
+	top: auto;
+}
+
+textbook.l5 {
+	font-family: Prociono, serif;
+}
+
+textbook.l5 bg2 {
+	bottom: -5%;
+}
+
+textbook.l5 author {
+	padding: 5%;
+	color: #fff;
+	font-size: 20px;
+}
+
+textbook.l5 title {
+	top: 60%;
+	bottom: 10%;
+	text-align: right;;
+	padding-right: 10%;
+	padding-left: 10%;
+	font-size: 80px;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	color: #4286f4;
+	background: linear-gradient(to right,rgba(255,255,255,0),#fff);
+}
+
+textbook.l4 {
+	font-family: Anton;
+	background: linear-gradient(to bottom,#f1a70f,#0091d0);
+}
+
+textbook.l4 title {
+	display: flex;
+	align-items: center;
+	height: 15%;
+	text-align: left;
+	text-transform: lowercase;
+	padding: 5%;
+	font-size: 100px;
+	color: #fff;
+	text-shadow: 0 2px 4px black;
+	-webkit-transform: rotate(-5deg);
+}
+
+textbook.l4 author {
+	color: white;
+	top: auto;
+	bottom: 2%;
+	right:2%;
+	text-align: right;
+	text-transform: lowercase;
+	font-size: 20px;
+}
+
+textbook.l4 bg2 {
+	top: 10%;
+	left:30%;
+	right: 5%;
+	bottom: 10%;
+	-webkit-transform: rotate(5deg);
+	box-shadow: 0 0 0 5px black;
+}
+
+textbook.l4 bg {
+	top: 15%;
+	left:-10%;
+	right: -10%;
+	bottom: 10%;
+	-webkit-transform: rotate(-5deg);
+	box-shadow: 0 0 0 5px #78d024;
+}
+
+
+textbook.l3 {
+	font-family: Montserrat, sans-serif;
+}
+
+textbook.l3 bg2 {
+	bottom: -10%;
+}
+
+textbook.l3 title {
+	top: 2%;
+	right: 4%;
+	color: #fff;
+	padding: 0 4%;
+	font-size: 60px;
+	background: rgba(49, 104, 90,.75);
+	height: 20%;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+}
+
+textbook.l3 author {
+	background: rgba(68, 49, 104,.75);
+	top: 24%;
+	right: 12%;
+	font-size: 20px;
+	height: 6%;
+	display: flex;
+	align-items: center;
+	padding: 0 4%;
+	color: #fff;
+	font-weight: 100;
+}
+
+textbook.l3 author span:not(:last-child):after {
+	content: ', ';
+	margin-right: 1em;
+}
+
+textbook.l2 bg2 {
+	bottom: 20%;
+	right: -10%;
+	top: auto;
+	left: auto;;
+	height: 400px;
+	width: 400px;
+	box-shadow: 0 0 10px 10px rgba(0,0,0,.5);
+	border-radius: 100%;
+	z-index: 999;
+}
+
+textbook.l2 title {
+	font-size: 120px;
+	color: #fffcb5;
+	font-family: Roboto, arial, sans-serif;
+	font-style: italic;
+	font-stretch: condensed;
+	top: 5%;
+	text-shadow: 0 0 10px rgba(0,0,0,.5);
+	left: 5%;
+	right: 20%;
+}
+
+textbook.l2 author {
+	top: auto;
+	bottom: 0;
+	left: 0;
+	padding-bottom: 5%;
+	padding-left:5%;
+	padding-top: 50%;
+	font-size: 30px;
+	color: #fff;
+	font-family: Roboto, arial, sans-serif;
+	background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5));
+}
+
+
+textbook.l1 {
+	background-color: #2d5ead;
+}
+
+textbook.l1 title {
+	text-align: center;
+	font-size: 60px;
+	color: #fff;
+	font-family: Prociono, "times new roman";
+	height: 20%;
+	display: flex;;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border-bottom: 4px solid #000;
+}
+
+textbook.l1 author {
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	font-family: Prociono, "times new roman";
+	height: 20%;
+	bottom:0;
+	top: 80%;
+	font-variant: small-caps;
+	display: flex;;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	border-top: 4px solid #000;
+	background: #2d5ead;
+}
+
+textbook.l1 author span {
+	display: block;
+}
+
+textbook.l1 bg {
+	right: 50%;
+	top: 20%;
+	bottom: 18%;
+}
+
+textbook.l1 bg2 {
+	left: 50%;
+	top: 20%;
+	bottom: 18%;
+}
