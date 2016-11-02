@@ -7,3 +7,5 @@ build/textbook/public/*
 build/textbook/public/index.png
 
 npm-debug.log
+
+build/public/index.jpeg
