@@ -60,10 +60,11 @@ textbook.l6 bg2 {
 textbook.l6 title {
 	top: 35%;
 	bottom: 35%;
-	display: flex;
-	align-items: center;
+	display: -webkit-flex;display: flex;
+	-webkit-align-items: center;align-items: center;
 	padding: 0 5%;
 	font-size: 100px;
+	text-align: center;
 }
 
 textbook.l6 author {
@@ -104,8 +105,8 @@ textbook.l5 title {
 	padding-left: 10%;
 	font-size: 80px;
 	text-transform: uppercase;
-	display: flex;
-	align-items: center;
+	display: -webkit-flex;display: flex;
+	-webkit-align-items: center;align-items: center;
 	color: #4286f4;
 	background: linear-gradient(to right,rgba(255,255,255,0),#fff);
 }
@@ -116,8 +117,8 @@ textbook.l4 {
 }
 
 textbook.l4 title {
-	display: flex;
-	align-items: center;
+	display: -webkit-flex;display: flex;
+	-webkit-align-items: center;align-items: center;
 	height: 15%;
 	text-align: left;
 	text-transform: lowercase;
@@ -174,8 +175,8 @@ textbook.l3 title {
 	background: rgba(49, 104, 90,.75);
 	height: 20%;
 	text-transform: uppercase;
-	display: flex;
-	align-items: center;
+	display: -webkit-flex;display: flex;
+	-webkit-align-items: center;align-items: center;
 }
 
 textbook.l3 author {
@@ -184,8 +185,8 @@ textbook.l3 author {
 	right: 12%;
 	font-size: 20px;
 	height: 6%;
-	display: flex;
-	align-items: center;
+	display: -webkit-flex;display: flex;
+	-webkit-align-items: center;align-items: center;
 	padding: 0 4%;
 	color: #fff;
 	font-weight: 100;
@@ -244,9 +245,9 @@ textbook.l1 title {
 	color: #fff;
 	font-family: Prociono, "times new roman";
 	height: 20%;
-	display: flex;;
-	align-items: center;
-	justify-content: center;
+	display: -webkit-flex;display: flex;;
+	-webkit-align-items: center;align-items: center;
+	-webkit-justify-content: center;justify-content: center;
 	text-align: center;
 	border-bottom: 4px solid #000;
 }
@@ -260,9 +261,9 @@ textbook.l1 author {
 	bottom:0;
 	top: 80%;
 	font-variant: small-caps;
-	display: flex;;
-	align-items: center;
-	justify-content: center;
+	display: -webkit-flex;display: flex;;
+	-webkit-align-items: center;align-items: center;
+	-webkit-justify-content: center;justify-content: center;
 	text-align: center;
 	flex-direction: column;
 	border-top: 4px solid #000;
