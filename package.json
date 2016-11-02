@@ -1,6 +1,6 @@
 {
   "name": "textbook",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Makes random textbook covers",
   "main": "index.js",
   "scripts": {
