@@ -61,13 +61,41 @@ gulp.task('webshot',function(){
 		}))
 })
 
-gulp.task('shitpost',gulp.series('webshot','tweet'));
+gulp.task('shitpost',
+	gulp.series('webshot','tweet')
+);
 
-gulp.task('test', function () {
-	return 'yes it works its perfect'
+gulp.task('test', function (done) {
+	console.log('yes it works its perfect');
+	done();
 });
 
 gulp.task('default', function() {
+	return gulp.src('src/index.js')
+		.pipe(webpack({
+			output: {
+				filename: 'textbook.js',
+				library: 'Textbook',
+				libraryTarget: 'umd'
+			},
+			plugins: [
+				new webpack.webpack.ProvidePlugin({
+					Promise: 'es6-promise-promise'
+				}),
+				new WrapperPlugin({
+					header: '/* Textbook */',
+					footer: "if(window.Textbook && typeof window.Textbook === 'function'){window.Textbook = window.Textbook()}"
+				})
+			],
+			module: webpackModule,
+			resolve: {
+				root: path.resolve('./src')
+			}
+		}))
+		.pipe(gulp.dest('dist/'));
+});
+
+gulp.task('watch',function() {
 	return gulp.src('src/index.js')
 		.pipe(webpack({
 			watch: true,
@@ -92,4 +120,4 @@ gulp.task('default', function() {
 			}
 		}))
 		.pipe(gulp.dest('dist/'));
-});
+})
