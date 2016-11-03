@@ -265,6 +265,7 @@ textbook.l1 author {
 	-webkit-align-items: center;align-items: center;
 	-webkit-justify-content: center;justify-content: center;
 	text-align: center;
+	-webkit-flex-direction: column;
 	flex-direction: column;
 	border-top: 4px solid #000;
 	background: #2d5ead;
