@@ -6,7 +6,6 @@
   "scripts": {
     "gulp": "./node_modules/.bin/gulp",
     "test": "gulp test",
-    "start": "gulp shitpost",
     "shitpost": "gulp shitpost"
   },
   "repository": {
