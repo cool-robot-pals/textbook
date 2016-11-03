@@ -1,7 +1,10 @@
 node_modules/*
 npm-debug.log
 
-build/public/*
-build/public/!.exists
+dist/textbook.js
+dist/textbook.js.map
+
+build/*
+!build/.exists
 
 .DS_Store

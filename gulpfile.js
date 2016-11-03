@@ -37,7 +37,7 @@ var webpackModule = {
 };
 
 gulp.task('tweet',function(done){
-	var b64content = fs.readFileSync('build/public/index.jpeg', { encoding: 'base64' });
+	var b64content = fs.readFileSync('build/index.jpeg', { encoding: 'base64' });
 	T.post('media/upload', { media_data: b64content }, function (err, data, response) {
 		var params = { status: '', media_ids: [data.media_id_string] }
 		T.post('statuses/update', params, function (err, data, response) {
@@ -47,13 +47,13 @@ gulp.task('tweet',function(done){
 })
 
 gulp.task('webshot',function(){
-	return gulp.src('public/index.html')
+	return gulp.src('dist/index.html')
 		.pipe(webshot({
 			dest: 'build/',
-			root: '.',
-			renderDelay: 10000,
+			root: 'dist',
+			renderDelay: 20000,
 			streamType: 'jpeg',
-			quality: 50,
+			quality: 75,
 			screenSize: {
 				width: 800,
 				height: 1100
@@ -91,5 +91,5 @@ gulp.task('default', function() {
 				root: path.resolve('./src')
 			}
 		}))
-		.pipe(gulp.dest('public/'));
+		.pipe(gulp.dest('dist/'));
 });
