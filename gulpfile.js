@@ -82,6 +82,12 @@ gulp.task('default', function() {
 				new webpack.webpack.ProvidePlugin({
 					Promise: 'es6-promise-promise'
 				}),
+				new webpack.webpack.DefinePlugin({
+					'process.env': {
+						PHOTO_CID: '"'+process.env.PHOTO_CID+'"',
+						PHOTO_CS:  '"'+process.env.PHOTO_CS+'"'
+					}
+				}),
 				new WrapperPlugin({
 					header: '/* Textbook */',
 					footer: "if(window.Textbook && typeof window.Textbook === 'function'){window.Textbook = window.Textbook()}"
@@ -96,6 +102,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('watch',function() {
+
 	return gulp.src('src/index.js')
 		.pipe(webpack({
 			watch: true,
@@ -108,6 +115,12 @@ gulp.task('watch',function() {
 			plugins: [
 				new webpack.webpack.ProvidePlugin({
 					Promise: 'es6-promise-promise'
+				}),
+				new webpack.webpack.DefinePlugin({
+					'process.env': {
+						PHOTO_CID: '"'+process.env.PHOTO_CID+'"',
+						PHOTO_CS:  '"'+process.env.PHOTO_CS+'"'
+					}
 				}),
 				new WrapperPlugin({
 					header: '/* Textbook */',
