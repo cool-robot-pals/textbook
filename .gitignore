@@ -1,10 +1,7 @@
 node_modules/*
 npm-debug.log
 
-dist/textbook.js
-dist/textbook.js.map
-
+build
 build/*
-!build/.exists
 
 .DS_Store
