@@ -13,12 +13,9 @@
 		<script type="text/javascript" src="textbook.js"></script>
 		<script type="text/javascript">
 			if(window.location.hash === '#test') {
-				var css = document.createElement("style");
-				css.type = "text/css";
-				css.innerHTML = "body { zoom: .25 }";
-				document.querySelector('head').appendChild(css);
-
+				$('body').addClass('preview');
 				for(var layout = 1;layout <= Textbook.layoutsTotal; layout++) {
+					$('body').append('<textbook-preview><span>'+layout+'</span></textbook-preview>');
 					var variants = Textbook.getAllPossibleVariants(Textbook.layouts[layout].variants);
 					variants.map(function(variant){
 						Textbook.makeBook({
