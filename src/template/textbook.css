@@ -10,6 +10,10 @@ body, body * {
 	line-height: 1;
 }
 
+script {
+	display: none;
+}
+
 textbook {
 	display:block;
 	width: 800px;
@@ -60,15 +64,15 @@ textbook.l6:after {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	z-index: 8;
 }
 
 textbook.l6 bg,
 textbook.l6 bg2 {
 	border-radius: 100%;
-	width: 1000px;
-	height: 1000px;
-	left: -100px;
-	z-index: 10;
+	width: 100%;
+	height: 35%;
+	z-index: 9;
 }
 
 textbook.l6 title {
@@ -81,6 +85,11 @@ textbook.l6 title {
 	text-align: center;
 }
 
+textbook.l6 title span {
+	width: 100%;
+	text-align: inherit;
+}
+
 textbook.l6 author {
 	text-align: center;
 	color: #222;
@@ -90,15 +99,27 @@ textbook.l6 author {
 	text-shadow: 0 0 10px #fff;
 }
 
+textbook.l6.v-1-2:after {
+	display: none;
+}
+
+textbook.l6.v-1-2 {
+	background: -color-soft-1-;
+}
+
+textbook.l6.v-1-2 title {
+	color: -color-soft-2-;
+}
+
+
 textbook.l6 bg {
-	top: -55%;
-	z-index: 9;
+	border-radius: 0 0 500% 500%
 }
 
 textbook.l6 bg2 {
-	bottom: -55%;
+	bottom: 0;
 	top: auto;
-	z-index: 9;
+	border-radius: 500% 500% 0 0;
 }
 
 textbook.l5 {
@@ -110,23 +131,51 @@ textbook.l5 bg2 {
 }
 
 textbook.l5 author {
+	top: auto;
+	bottom: auto;
 	padding: 5%;
 	color: #fff;
 	font-size: 20px;
+	-align-vertical-alt-: 0;
+	height: auto;
+	text-align: -align-alt-;
 }
 
 textbook.l5 title {
-	top: 60%;
-	bottom: 10%;
-	text-align: right;;
-	padding-right: 10%;
-	padding-left: 10%;
+	top: auto;
+	bottom: auto;
+	-align-vertical-: 10%;
+	text-align: -align-;
+	padding: 5% 10%;
 	font-size: 80px;
+	height: auto;
 	text-transform: uppercase;
 	display: -webkit-flex;display: flex;
 	-webkit-align-items: center;align-items: center;
 	color: -color-pastel-2-;
-	background: linear-gradient(to right,rgba(255,255,255,0),#fff);
+	text-shadow: 4px 4px 8px #fff;
+	background: linear-gradient(to -align-,rgba(255,255,255,0),#fff);
+}
+
+textbook.l5.v-1-2 title {
+	background: linear-gradient(to -align-,rgba(0,0,0,0),-color-pale-1-);
+	color: -color-pale-2-;
+	text-shadow: 4px 4px 8px rgba(0,0,0,.5);
+}
+
+textbook.l5.v-1-2 title {
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	height: 30%;
+}
+
+textbook.l5.v-1-2 bg1 {
+	bottom: 50%;
+}
+
+textbook.l5.v-1-2 bg2 {
+	top: 50%;
 }
 
 textbook.l4 {
@@ -135,16 +184,18 @@ textbook.l4 {
 }
 
 textbook.l4 title {
-	display: -webkit-flex;display: flex;
-	-webkit-align-items: center;align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
 	height: 15%;
-	text-align: left;
+	text-align: -align-alt-;
 	text-transform: lowercase;
 	padding: 5%;
 	font-size: 100px;
 	color: #fff;
 	text-shadow: 0 2px 4px black;
-	-webkit-transform: rotate(-5deg);
+	-webkit-transform: rotate(-negaposi-5deg);
 }
 
 textbook.l4 author {
@@ -152,18 +203,23 @@ textbook.l4 author {
 	top: auto;
 	bottom: 2%;
 	right:2%;
-	text-align: right;
+	left: 2%;
+	text-align: -align-;
 	text-transform: lowercase;
 	font-size: 20px;
 }
 
 textbook.l4 bg2 {
 	top: 10%;
-	left:30%;
-	right: 5%;
+	left:45%;
+	right: -5%;
 	bottom: 10%;
-	-webkit-transform: rotate(5deg);
+	-webkit-transform: rotate(-negaposi-alt-5deg);
 	box-shadow: 0 0 0 5px black;
+}
+
+textbook.l4.v-1-2 bg2 {
+	display: none;
 }
 
 textbook.l4 bg {
@@ -171,8 +227,9 @@ textbook.l4 bg {
 	left:-10%;
 	right: -10%;
 	bottom: 10%;
-	-webkit-transform: rotate(-5deg);
+	-webkit-transform: rotate(-negaposi-5deg);
 	box-shadow: 0 0 0 5px -color-hard-3-;
+	border-radius: 100% / 20%;
 }
 
 
@@ -180,8 +237,12 @@ textbook.l3 {
 	font-family: Montserrat, sans-serif;
 }
 
-textbook.l3 bg2 {
-	bottom: -10%;
+textbook.l3.v-1-2 bg {
+	bottom: 50%;
+}
+
+textbook.l3.v-1-2 bg2 {
+	top: 50%;
 }
 
 textbook.l3 title {
@@ -212,8 +273,7 @@ textbook.l3 title:after {
 	 left: 0;
 	 right: 0;
 	 bottom: 0;
- }
-
+}
 
 textbook.l3 author {
 	top: 24%;
@@ -252,11 +312,19 @@ textbook.l3 author span:not(:last-child):after {
 	margin-right: 1em;
 }
 
-textbook.l2 bg2 {
-	bottom: 20%;
-	right: -10%;
+textbook.l3.v-1-2 author {
+	bottom: 2%;
+	right: 0;
 	top: auto;
-	left: auto;;
+	left: auto;
+}
+
+textbook.l2.v-1-1 bg2 {
+	bottom: 20%;
+	left: auto;
+	right: auto;
+	-align-alt-: -10%;
+	top: auto;
 	height: 400px;
 	width: 400px;
 	box-shadow: 0 0 10px 10px rgba(0,0,0,.5);
@@ -264,16 +332,32 @@ textbook.l2 bg2 {
 	z-index: 999;
 }
 
+textbook.l2.v-1-2 bg2 {
+	bottom: 0;
+	right: 0;
+	top: 0;
+	left: 60%;
+}
+
+textbook.l2.v-1-2 bg1 {
+	bottom: 0;
+	right: 0;
+	top: 0;
+	right: 40%;
+}
+
+
 textbook.l2 title {
 	font-size: 120px;
 	color: -color-pale-1-;
 	font-family: Roboto, arial, sans-serif;
 	font-style: italic;
 	font-stretch: condensed;
+	text-align: -align-;
 	top: 5%;
-	text-shadow: 0 0 10px rgba(0,0,0,.5);
+	text-shadow: 5px 5px 0 rgba(0,0,0,.75);
 	left: 5%;
-	right: 20%;
+	right: 5%;
 }
 
 textbook.l2 author {
@@ -343,8 +427,27 @@ textbook.l1 bg2 {
 	bottom: 18%;
 }
 
+textbook.l1.v-1-2 bg {
+	right: 0%;
+	top: 20%;
+	bottom: 18%;
+}
+
+textbook.l1.v-1-2 bg2 {
+	display: none;
+}
+
+
 textbook.l7 {
 	text-align: center;
+}
+
+textbook.l7 bg {
+	bottom: 50%;
+}
+
+textbook.l7 bg2 {
+	top: 50%;
 }
 
 textbook.l7 title {
@@ -352,8 +455,9 @@ textbook.l7 title {
 	background: #888;
 	color: #fff;
 	text-shadow: 4px 4px #333;
+	border: 4px outset #888;
 	position: absolute;
-	bottom: 25%;
+	bottom: 45%;
 	left: 10%;
 	right: 10%;
 	top: auto;
@@ -361,7 +465,6 @@ textbook.l7 title {
 	font-size: 50px;
 	height: auto;
 	padding: 5%;
-	border: 4px outset #888;
 	box-shadow: 10px 10px rgba(100,100,100,.8);
 }
 
@@ -371,7 +474,7 @@ textbook.l7 title span {
 }
 
 textbook.l7 author {
-	top: 73.5%;
+	top: 53.5%;
 	display: inline-block;
 	padding: 2%;
 	font-size: 18px;
@@ -386,4 +489,18 @@ textbook.l7 author {
 	text-shadow: 2px 2px #888;
 	box-shadow: 10px 10px rgba(100,100,100,.8);
 	font-family: Roboto, arial, sans-serif
+}
+
+textbook.l7.v-1-2 author {
+	background: #888;
+	color: #fff;
+	text-shadow: 4px 4px #333;
+	border: 4px outset #888;
+}
+
+textbook.l7.v-1-2 title {
+	background: -color-pale-1-;
+	color: #000;
+	text-shadow: 2px 2px #888;
+	border: none;
 }

@@ -4,7 +4,9 @@ var makeColors = require('lib/makeColors.js');
 var titles = require('data/majors.js');
 var names = require('data/names.js');
 var wrap = require('data/wrap.js');
+var layouts = require('data/layouts.js');
 
+var layoutsTotal = Object.keys(layouts).length;
 
 var bookCreated = new Event('bookCreated',{bubbles:true});
 
@@ -31,10 +33,38 @@ var getTitle = function() {
 	return title;
 }
 
+var getAllPossibleVariants = function(variants) {
+
+	var possibles = []
+	var possibleItem = [];
+
+	function iterator(possibleItem,level) {
+		for(var i = 1;i <= variants[level]; i++) {
+			possibleItem = JSON.parse(JSON.stringify(possibleItem));
+			possibleItem[level] = i;
+			if(variants[level+1]) {
+				iterator(possibleItem,level+1);
+			}
+			else {
+				possibles.push(possibleItem);
+			}
+		}
+	}
+
+	iterator([],0);
+
+	console.log(possibles);
+	return possibles;
+
+}
+
 var makeCss = function() {
 
 	var css = require('template/textbook.css');
 	var colors = makeColors();
+
+	var alignments = ['left','right'];
+	var verticalAlignments = ['top','bottom'];
 
 	Object.keys(colors).map(function(k){
 		css = css
@@ -42,6 +72,17 @@ var makeCss = function() {
 		.replace(new RegExp('-color-'+k+'-2-', 'g'),'#'+colors[k][1])
 		.replace(new RegExp('-color-'+k+'-3-', 'g'),'#'+colors[k][2])
 	});
+
+	var alignment = random(alignments);
+	var verticalAlignment = random(verticalAlignments);
+
+	css = css
+	.replace(new RegExp('-align-vertical-alt-', 'g'),verticalAlignment)
+	.replace(new RegExp('-align-vertical-', 'g'),verticalAlignment === verticalAlignments[0]?verticalAlignments[1]:verticalAlignments[0])
+	.replace(new RegExp('-align-alt-', 'g'),alignment)
+	.replace(new RegExp('-align-', 'g'),alignment === alignments[0]?alignments[1]:alignments[0])
+	.replace(new RegExp('-negaposi-alt-', 'g'),random(['-','']))
+	.replace(new RegExp('-negaposi-', 'g'),random(['-','']));
 
 	$('head').append(
 		$('<style></style>').text(css)
@@ -58,13 +99,20 @@ var makeBook = function(params) {
 	var authorsTotal = Math.ceil(Math.random()*4);
 	var authorsType = Math.floor(Math.random()*3);
 
-	if(!params.layout) params.layout = Math.ceil(Math.random()*6);
+	if(!params.layout) params.layout = Math.ceil(Math.random()*layoutsTotal);
+	if(!params.variant) {
+		params.variant = random(getAllPossibleVariants(layouts[params.layout].variants))
+	}
 
 	var title = getTitle();
 
 	var $textbook = $('<textbook></textbook>');
 
 	$textbook.addClass('l'+params.layout);
+
+	for(var variantIndex = 0; variantIndex < params.variant.length; variantIndex++) {
+		$textbook.addClass('v-'+(variantIndex+1)+'-'+params.variant[variantIndex]);
+	}
 
 	$textbook.append(
 		$('<title></title>').append('<span>'+title+'</span>')
@@ -94,41 +142,13 @@ var makeBook = function(params) {
 module.exports = function(){
 
 	var lib = {};
+
+	lib.layoutsTotal = layoutsTotal;
+	lib.layouts = layouts;
 	lib.makeBook = makeBook;
+	lib.getAllPossibleVariants = getAllPossibleVariants;
 
 	makeCss();
-	lib.makeBook();
-	
-	/*
-	lib.makeBook({
-		debug: true,
-		layout: 1
-	});
-	lib.makeBook({
-		debug: true,
-		layout: 2
-	});
-	lib.makeBook({
-		debug: true,
-		layout: 3
-	});
-	lib.makeBook({
-		debug: true,
-		layout: 4
-	});
-	lib.makeBook({
-		debug: true,
-		layout: 5
-	});
-	lib.makeBook({
-		debug: true,
-		layout: 6
-	});
-	lib.makeBook({
-		debug: true,
-		layout: 7
-	});
-	*/
 
 	return lib;
 }

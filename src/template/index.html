@@ -11,5 +11,27 @@
 		<link href="http://fonts.googleapis.com/css?family=Montserrat|Prociono|Roboto:400,400i|Anton" rel="stylesheet">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script type="text/javascript" src="textbook.js"></script>
+		<script type="text/javascript">
+			if(window.location.hash === '#test') {
+				var css = document.createElement("style");
+				css.type = "text/css";
+				css.innerHTML = "body { zoom: .25 }";
+				document.querySelector('head').appendChild(css);
+
+				for(var layout = 1;layout <= Textbook.layoutsTotal; layout++) {
+					var variants = Textbook.getAllPossibleVariants(Textbook.layouts[layout].variants);
+					variants.map(function(variant){
+						Textbook.makeBook({
+							layout: layout,
+							variant: variant,
+							debug: true
+						});
+					});
+				}
+			}
+			else {
+				Textbook.makeBook();
+			}
+		</script>
 	</body>
 </html>
