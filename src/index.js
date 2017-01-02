@@ -68,21 +68,21 @@ var makeCss = function() {
 
 	Object.keys(colors).map(function(k){
 		css = css
-		.replace(new RegExp('-color-'+k+'-1-', 'g'),'#'+colors[k][0])
-		.replace(new RegExp('-color-'+k+'-2-', 'g'),'#'+colors[k][1])
-		.replace(new RegExp('-color-'+k+'-3-', 'g'),'#'+colors[k][2])
+		.replace(new RegExp('-@color-'+k+'-1-', 'g'),'#'+colors[k][0])
+		.replace(new RegExp('-@color-'+k+'-2-', 'g'),'#'+colors[k][1])
+		.replace(new RegExp('-@color-'+k+'-3-', 'g'),'#'+colors[k][2])
 	});
 
 	var alignment = random(alignments);
 	var verticalAlignment = random(verticalAlignments);
 
 	css = css
-	.replace(new RegExp('-align-vertical-alt-', 'g'),verticalAlignment)
-	.replace(new RegExp('-align-vertical-', 'g'),verticalAlignment === verticalAlignments[0]?verticalAlignments[1]:verticalAlignments[0])
-	.replace(new RegExp('-align-alt-', 'g'),alignment)
-	.replace(new RegExp('-align-', 'g'),alignment === alignments[0]?alignments[1]:alignments[0])
-	.replace(new RegExp('-negaposi-alt-', 'g'),random(['-','']))
-	.replace(new RegExp('-negaposi-', 'g'),random(['-','']));
+	.replace(new RegExp('-@align-vertical-alt-', 'g'),verticalAlignment)
+	.replace(new RegExp('-@align-vertical-', 'g'),verticalAlignment === verticalAlignments[0]?verticalAlignments[1]:verticalAlignments[0])
+	.replace(new RegExp('-@align-alt-', 'g'),alignment)
+	.replace(new RegExp('-@align-', 'g'),alignment === alignments[0]?alignments[1]:alignments[0])
+	.replace(new RegExp('-@negaposi-alt-', 'g'),random(['-','']))
+	.replace(new RegExp('-@negaposi-', 'g'),random(['-','']));
 
 	$('head').append(
 		$('<style></style>').text(css)

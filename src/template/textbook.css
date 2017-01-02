@@ -1,5 +1,5 @@
 body {
-	background: red;
+	background: #000;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -47,7 +47,7 @@ textbook bg, textbook bg2 {
 
 textbook.l6 {
 	font-family: montserrat;
-	background: -color-pale-2-;
+	background: -@color-pale-2-;
 	color: #fff;
 }
 
@@ -104,11 +104,11 @@ textbook.l6.v-1-2:after {
 }
 
 textbook.l6.v-1-2 {
-	background: -color-soft-1-;
+	background: -@color-soft-1-;
 }
 
 textbook.l6.v-1-2 title {
-	color: -color-soft-2-;
+	color: -@color-soft-2-;
 }
 
 
@@ -136,30 +136,30 @@ textbook.l5 author {
 	padding: 5%;
 	color: #fff;
 	font-size: 20px;
-	-align-vertical-alt-: 0;
+	-@align-vertical-alt-: 0;
 	height: auto;
-	text-align: -align-alt-;
+	text-align: -@align-alt-;
 }
 
 textbook.l5 title {
 	top: auto;
 	bottom: auto;
-	-align-vertical-: 10%;
-	text-align: -align-;
+	-@align-vertical-: 10%;
+	text-align: -@align-;
 	padding: 5% 10%;
 	font-size: 80px;
 	height: auto;
 	text-transform: uppercase;
 	display: -webkit-flex;display: flex;
 	-webkit-align-items: center;align-items: center;
-	color: -color-pastel-2-;
+	color: -@color-pastel-2-;
 	text-shadow: 4px 4px 8px #fff;
-	background: linear-gradient(to -align-,rgba(255,255,255,0),#fff);
+	background: linear-gradient(to -@align-,rgba(255,255,255,0),#fff);
 }
 
 textbook.l5.v-1-2 title {
-	background: linear-gradient(to -align-,rgba(0,0,0,0),-color-pale-1-);
-	color: -color-pale-2-;
+	background: linear-gradient(to -@align-,rgba(0,0,0,0),-@color-pale-1-);
+	color: -@color-pale-2-;
 	text-shadow: 4px 4px 8px rgba(0,0,0,.5);
 }
 
@@ -180,7 +180,7 @@ textbook.l5.v-1-2 bg2 {
 
 textbook.l4 {
 	font-family: Anton;
-	background: linear-gradient(to bottom,-color-hard-1-,-color-hard-2-);
+	background: linear-gradient(to bottom,-@color-hard-1-,-@color-hard-2-);
 }
 
 textbook.l4 title {
@@ -189,13 +189,13 @@ textbook.l4 title {
 	-webkit-align-items: center;
 	align-items: center;
 	height: 15%;
-	text-align: -align-alt-;
+	text-align: -@align-alt-;
 	text-transform: lowercase;
 	padding: 5%;
 	font-size: 100px;
 	color: #fff;
 	text-shadow: 0 2px 4px black;
-	-webkit-transform: rotate(-negaposi-5deg);
+	-webkit-transform: rotate(-@negaposi-5deg);
 }
 
 textbook.l4 author {
@@ -204,7 +204,7 @@ textbook.l4 author {
 	bottom: 2%;
 	right:2%;
 	left: 2%;
-	text-align: -align-;
+	text-align: -@align-;
 	text-transform: lowercase;
 	font-size: 20px;
 }
@@ -214,7 +214,7 @@ textbook.l4 bg2 {
 	left:45%;
 	right: -5%;
 	bottom: 10%;
-	-webkit-transform: rotate(-negaposi-alt-5deg);
+	-webkit-transform: rotate(-@negaposi-alt-5deg);
 	box-shadow: 0 0 0 5px black;
 }
 
@@ -227,8 +227,8 @@ textbook.l4 bg {
 	left:-10%;
 	right: -10%;
 	bottom: 10%;
-	-webkit-transform: rotate(-negaposi-5deg);
-	box-shadow: 0 0 0 5px -color-hard-3-;
+	-webkit-transform: rotate(-@negaposi-5deg);
+	box-shadow: 0 0 0 5px -@color-hard-3-;
 	border-radius: 100% / 20%;
 }
 
@@ -266,7 +266,7 @@ textbook.l3 title:after {
 	 width:100%;
 	 height: 100%;
 	 z-index: 9;
-	 background: -color-pastel-2-;
+	 background: -@color-pastel-2-;
 	 position: absolute;
 	 opacity: .75;
 	 top:0;
@@ -298,7 +298,7 @@ textbook.l3 author:after {
 	 width:100%;
 	 height: 100%;
 	 z-index: 9;
-	 background: -color-pastel-1-;
+	 background: -@color-pastel-1-;
 	 position: absolute;
 	 opacity: .75;
 	 top:0;
@@ -323,7 +323,7 @@ textbook.l2.v-1-1 bg2 {
 	bottom: 20%;
 	left: auto;
 	right: auto;
-	-align-alt-: -10%;
+	-@align-alt-: -10%;
 	top: auto;
 	height: 400px;
 	width: 400px;
@@ -349,11 +349,11 @@ textbook.l2.v-1-2 bg1 {
 
 textbook.l2 title {
 	font-size: 120px;
-	color: -color-pale-1-;
+	color: -@color-pale-1-;
 	font-family: Roboto, arial, sans-serif;
 	font-style: italic;
 	font-stretch: condensed;
-	text-align: -align-;
+	text-align: -@align-;
 	top: 5%;
 	text-shadow: 5px 5px 0 rgba(0,0,0,.75);
 	left: 5%;
@@ -375,7 +375,7 @@ textbook.l2 author {
 
 
 textbook.l1 {
-	background-color: -color-pastel-1-;
+	background-color: -@color-pastel-1-;
 }
 
 textbook.l1 title {
@@ -408,7 +408,7 @@ textbook.l1 author {
 	-webkit-flex-direction: column;
 	flex-direction: column;
 	border-top: 4px solid #000;
-	background: -color-pastel-1-;
+	background: -@color-pastel-1-;
 }
 
 textbook.l1 author span {
@@ -484,7 +484,7 @@ textbook.l7 author {
 	right: auto;
 	height: auto;
 	margin: auto;
-	background: -color-pale-1-;
+	background: -@color-pale-1-;
 	color: #000;
 	text-shadow: 2px 2px #888;
 	box-shadow: 10px 10px rgba(100,100,100,.8);
@@ -499,7 +499,7 @@ textbook.l7.v-1-2 author {
 }
 
 textbook.l7.v-1-2 title {
-	background: -color-pale-1-;
+	background: -@color-pale-1-;
 	color: #000;
 	text-shadow: 2px 2px #888;
 	border: none;
