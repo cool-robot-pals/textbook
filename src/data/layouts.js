@@ -1,9 +1,9 @@
 module.exports = {
 	1: {
-		variants: [2]
+		variants: [2,2]
 	},
 	2: {
-		variants: [2]
+		variants: [3]
 	},
 	3: {
 		variants: [2]

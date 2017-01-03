@@ -96,6 +96,13 @@ var makeCss = function() {
 	.replace(new RegExp('-@negaposi-alt-', 'g'),random(['-','']))
 	.replace(new RegExp('-@negaposi-', 'g'),random(['-','']));
 
+	css = css
+	.replace(/\-@\-maybe\-\{([\s\S]+?)\}/mg,function(match,m1){
+		return Math.random()>.5?m1:'';
+	})
+
+	console.log(css);
+
 	$('head').append(
 		$('<style></style>').text(css)
 	);
