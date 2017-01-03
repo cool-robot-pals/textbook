@@ -37,7 +37,7 @@ textbook {
 textbook-preview {
 	display:block;
 	width: 400px;
-	height: 1101px;
+	height: 1110px;
 	color: #fff;
 	float: left;
 	clear: left;
@@ -262,17 +262,29 @@ textbook.l3 {
 	font-family: Montserrat, sans-serif;
 }
 
-textbook.l3.v-1-2 bg {
+textbook.l3.v-2-2 bg {
 	bottom: 50%;
 }
 
-textbook.l3.v-1-2 bg2 {
+textbook.l3.v-2-2 bg2 {
 	top: 50%;
 }
 
+textbook.l3.v-2-3 bg {
+	left: 50%;
+}
+
+textbook.l3.v-2-3 bg2 {
+	right: 50%;
+}
+
+
 textbook.l3 title {
 	top: 2%;
-	right: 4%;
+	left: auto;
+	right: auto;
+	-@align-: 4%;
+	-@align-alt-: 0;
 	color: #fff;
 	padding: 0 4%;
 	font-size: 60px;
@@ -302,9 +314,18 @@ textbook.l3 title:after {
 	 bottom: 0;
 }
 
+textbook.l3.v-1-3 title {
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
 textbook.l3 author {
 	top: 24%;
-	right: 12%;
+	left: auto;
+	right: auto;
+	-@align-: 12%;
+	-@align-alt-: 0;
 	font-size: 20px;
 	height: 6%;
 	display: -webkit-flex;display: flex;
@@ -339,11 +360,21 @@ textbook.l3 author span:not(:last-child):after {
 	margin-right: 1em;
 }
 
-textbook.l3.v-1-2 author {
-	bottom: 2%;
-	right: 0;
+textbook.l3.v-1-2 title {
 	top: auto;
+	bottom: auto;
+	-@align-vertical-: 2%;
+}
+
+textbook.l3.v-1-2 author,
+textbook.l3.v-1-3 author {
+	top: auto;
+	bottom: auto;
+	-@align-vertical-alt-: 2%;
+	width: auto;
 	left: auto;
+	right: auto;
+	-@align-: 0;
 }
 
 textbook.l2.v-1-1 bg2 {

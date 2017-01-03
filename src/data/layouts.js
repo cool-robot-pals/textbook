@@ -6,7 +6,7 @@ module.exports = {
 		variants: [3]
 	},
 	3: {
-		variants: [2]
+		variants: [3,3]
 	},
 	4: {
 		variants: [2]
