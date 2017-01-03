@@ -107,7 +107,7 @@ textbook.l6 title {
 	-webkit-align-items: center;align-items: center;
 	padding: 0 5%;
 	font-size: 80px;
-	text-align: center;
+	text-align: -@align-with-center-;
 }
 
 textbook.l6 title span {
@@ -229,7 +229,7 @@ textbook.l4 author {
 	bottom: 2%;
 	right:2%;
 	left: 2%;
-	text-align: -@align-;
+	text-align: -@align-with-center-;
 	text-transform: lowercase;
 	font-size: 20px;
 }
@@ -389,8 +389,11 @@ textbook.l2 author {
 	top: auto;
 	bottom: 0;
 	left: 0;
+	right: 0;
+	text-align: -@align-with-center-;
 	padding-bottom: 5%;
 	padding-left:5%;
+	padding-right: 5%;
 	padding-top: 50%;
 	font-size: 30px;
 	color: #fff;
@@ -419,17 +422,16 @@ textbook.l1 title {
 }
 
 textbook.l1 author {
-	text-align: center;
+	text-align: -@align-with-center-;
 	font-size: 30px;
 	color: #fff;
 	font-family: Prociono, "times new roman";
 	height: 20%;
 	bottom:0;
 	top: 80%;
-	display: -webkit-flex;display: flex;;
-	-webkit-align-items: center;align-items: center;
+	padding: 0 5%;
+	display: -webkit-flex;display: flex;
 	-webkit-justify-content: center;justify-content: center;
-	text-align: center;
 	-webkit-flex-direction: column;
 	flex-direction: column;
 	border-top: 4px solid #000;

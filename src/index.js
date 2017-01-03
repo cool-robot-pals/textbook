@@ -27,9 +27,19 @@ var getAuthor = function(type) {
 }
 
 var getTitle = function() {
-	var title = titles[Math.floor(Math.random() * titles.length)];
-	var titleSeed = Math.random();
-	if(titleSeed > .25) title = random(wrap).replace('$1',title);
+
+	var joiners = [' and ',' & ',', '];
+
+	var title = random(titles);
+
+	var multiSeed = Math.random();
+	if(multiSeed > .66) {
+		title += random(joiners)+random(titles);
+	}
+
+	var wrapSeed = Math.random();
+	if(wrapSeed > .25) title = random(wrap).replace('$1',title);
+
 	return title;
 }
 
@@ -64,6 +74,7 @@ var makeCss = function() {
 	var colors = makeColors();
 
 	var alignments = ['left','right'];
+	var alignmentsWithCenter = ['left','right','center'];
 	var verticalAlignments = ['top','bottom'];
 
 	Object.keys(colors).map(function(k){
@@ -79,6 +90,7 @@ var makeCss = function() {
 	css = css
 	.replace(new RegExp('-@align-vertical-alt-', 'g'),verticalAlignment)
 	.replace(new RegExp('-@align-vertical-', 'g'),verticalAlignment === verticalAlignments[0]?verticalAlignments[1]:verticalAlignments[0])
+	.replace(new RegExp('-@align-with-center-', 'g'),random(alignmentsWithCenter))
 	.replace(new RegExp('-@align-alt-', 'g'),alignment)
 	.replace(new RegExp('-@align-', 'g'),alignment === alignments[0]?alignments[1]:alignments[0])
 	.replace(new RegExp('-@negaposi-alt-', 'g'),random(['-','']))
@@ -114,8 +126,10 @@ var makeBook = function(params) {
 		$textbook.addClass('v-'+(variantIndex+1)+'-'+params.variant[variantIndex]);
 	}
 
+	var titleSize = 1 - (title.length - 25) / 80;
+	var $span = $('<span></span>').text(title).css('font-size',titleSize+'em');
 	$textbook.append(
-		$('<title></title>').append('<span>'+title+'</span>')
+		($('<title></title>').append($span))
 	);
 	$textbook.append(
 		$('<author></author>')
