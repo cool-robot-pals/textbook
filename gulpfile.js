@@ -114,8 +114,8 @@ gulp.task('_makejs', function() {
 				}),
 				new webpack.webpack.DefinePlugin({
 					'process.env': {
-						PHOTO_CID: '"'+process.env.PHOTO_CID+'"',
-						PHOTO_CS:  '"'+process.env.PHOTO_CS+'"'
+						TEXTBOOK_GOOGLE_CX: '"'+process.env.TEXTBOOK_GOOGLE_CX+'"',
+						TEXTBOOK_GOOGLE_KEY:  '"'+process.env.TEXTBOOK_GOOGLE_KEY+'"'
 					}
 				}),
 				new WrapperPlugin({
