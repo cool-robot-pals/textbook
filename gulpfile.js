@@ -5,18 +5,10 @@ var path = require('path');
 var WrapperPlugin = require('wrapper-webpack-plugin');
 var webshot = require('gulp-webshot');
 var fs = require('fs-extra');
-
-var env = require('./src/env.js');
+var gutil = require("gulp-util");
 var Twit = require('twit')
 
-if(env.twitterConsumerKey){
-	var T = new Twit({
-	  consumer_key:         env.twitterConsumerKey,
-	  consumer_secret:      env.twitterConsumerSecret,
-	  access_token:         env.twitterAccess,
-	  access_token_secret:  env.twitterSecret
-  });
-}
+var env = require('./src/env.js');
 
 var webpackModule = {
 	loaders: [
@@ -37,13 +29,32 @@ var webpackModule = {
 };
 
 gulp.task('tweet',function(done){
-	var b64content = fs.readFileSync('build/book.jpg', { encoding: 'base64' });
-	T.post('media/upload', { media_data: b64content }, function (err, data, response) {
-		var params = { status: '', media_ids: [data.media_id_string] }
-		T.post('statuses/update', params, function (err, data, response) {
-			done(data)
+	if(env.twitterConsumerKey){
+		var T = new Twit({
+			consumer_key:         env.twitterConsumerKey,
+			consumer_secret:      env.twitterConsumerSecret,
+			access_token:         env.twitterAccess,
+			access_token_secret:  env.twitterSecret
 		});
-	})
+		try {
+			var b64content = fs.readFileSync('build/book.jpg', { encoding: 'base64' });
+			T.post('media/upload', { media_data: b64content }, function (err, data, response) {
+				var params = { status: '', media_ids: [data.media_id_string] }
+				T.post('statuses/update', params, function (err, data, response) {
+					done(data)
+				});
+			});
+		} catch(e) {
+			console.log('Exception caught');
+			console.log(e);
+			done();
+		}
+	} else {
+		throw new gutil.PluginError({
+			plugin: 'tweet',
+			message: 'Environment is undefined'
+		});
+	}
 })
 
 gulp.task('webshot',function(done){
