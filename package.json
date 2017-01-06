@@ -4,6 +4,7 @@
   "description": "Makes random textbook covers",
   "main": "index.js",
   "scripts": {
+    "start": "echo 👌",
     "gulp": "./node_modules/.bin/gulp",
     "test": "gulp test",
     "install": "gulp",
