@@ -1,16 +1,7 @@
 var env = require('env.js');
 var concepts = require('data/concepts.js');
-var apiUrl = 'https://api.shutterstock.com/v2';
-
-function encodeAuthorization() {
-	var clientId = env.clientId;
-	var clientSecret = env.clientSecret;
-
-	if (!clientId || !clientSecret) {
-		throw('Client id and/or client secret are missing in the API key section, with out these you wont be able to contact the API.');
-	}
-	return 'Basic ' + window.btoa(clientId + ':' + clientSecret);
-}
+var apiUrl = 'https://www.googleapis.com/customsearch/v1';
+var random = require('lib/random.js');
 
 module.exports = function(mock) {
 	var dfd = jQuery.Deferred();
@@ -22,20 +13,23 @@ module.exports = function(mock) {
 	}
 	else {
 		$.ajax({
-			url: apiUrl + '/images/search',
+			url: apiUrl,
 			dataType: 'json',
 			data: {
-				query: concepts[Math.floor(Math.random() * concepts.length)],
-				image_type: 'photo',
-				orientation: 'vertical'
-			},
-			headers: {
-				Authorization: encodeAuthorization()
+				q: concepts[Math.floor(Math.random() * concepts.length)]
+				   + (Math.random() > .33 ? '':' person')
+				   + ' stock -quote -whisper -ecards -meme -screenshot',
+				safe: 'medium',
+				searchType: 'image',
+				imgSize: 'xlarge',
+				imgType: random(['photo','face','clipart']),
+				cx: env.googleSearchCx,
+				key: env.googleSearchKey,
 			}
 		}).done(function(response){
 			dfd.resolve([
-				response.data[Math.floor(Math.random() * response.data.length)].assets.preview.url,
-				response.data[Math.floor(Math.random() * response.data.length)].assets.preview.url
+				response.items[Math.floor(Math.random() * response.items.length)].link,
+				response.items[Math.floor(Math.random() * response.items.length)].link
 			]);
 		});
 	}

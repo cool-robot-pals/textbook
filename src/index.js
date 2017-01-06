@@ -1,5 +1,6 @@
 var photoGetter = require('lib/photoGetter.js');
 var makeColors = require('lib/makeColors.js');
+var random = require('lib/random.js');
 
 var titles = require('data/majors.js');
 var names = require('data/names.js');
@@ -9,10 +10,6 @@ var layouts = require('data/layouts.js');
 var layoutsTotal = Object.keys(layouts).length;
 
 var bookCreated = new Event('bookCreated',{bubbles:true});
-
-var random = function(arr) {
-	return arr[Math.floor(Math.random() * arr.length)];
-}
 
 var getAuthor = function(type) {
 	if(type == 0) {

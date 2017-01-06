@@ -138,13 +138,13 @@ textbook.l6.v-1-2 title {
 
 
 textbook.l6 bg {
-	border-radius: 0 0 500% 500%
+	border-radius: 0 0 999999px 999999px
 }
 
 textbook.l6 bg2 {
 	bottom: 0;
 	top: auto;
-	border-radius: 500% 500% 0 0;
+	border-radius: 999999px 999999px 0 0;
 }
 
 textbook.l5 {
