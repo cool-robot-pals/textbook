@@ -6,10 +6,10 @@ var titles = require('data/majors.js');
 var names = require('data/names.js');
 var wrap = require('data/wrap.js');
 var layouts = require('data/layouts.js');
+var concepts = require('data/concepts.js');
 
 var layoutsTotal = Object.keys(layouts).length;
 
-var bookCreated = new Event('bookCreated',{bubbles:true});
 
 var getAuthor = function(type) {
 	if(type == 0) {
@@ -22,6 +22,7 @@ var getAuthor = function(type) {
 		return random(names)+' '+random(names);
 	}
 }
+
 
 var getTitle = function() {
 
@@ -39,6 +40,7 @@ var getTitle = function() {
 
 	return title;
 }
+
 
 var getAllPossibleVariants = function(variants) {
 
@@ -64,6 +66,7 @@ var getAllPossibleVariants = function(variants) {
 	return possibles;
 
 }
+
 
 var makeCss = function() {
 
@@ -98,50 +101,56 @@ var makeCss = function() {
 		return Math.random()>.5?m1:'';
 	})
 
-	console.log(css);
-
 	$('head').append(
 		$('<style></style>').text(css)
 	);
 }
 
+
 var makeBook = function(params) {
 
-	if(!params) params = {};
+	if(!params) var params = {};
 	if(!params.debug) params.debug = false;
-
-	var getPhotos = new photoGetter(params.debug);
-
-	var authorsTotal = Math.ceil(Math.random()*4);
-	var authorsType = Math.floor(Math.random()*3);
-
 	if(!params.layout) params.layout = Math.ceil(Math.random()*layoutsTotal);
 	if(!params.variant) {
 		params.variant = random(getAllPossibleVariants(layouts[params.layout].variants))
 	}
 
 	var title = getTitle();
+	var authors = [];
+	var photoQuery = random(concepts) + (Math.random() > .33 ? '':' person');
+	var authorsTotal = Math.ceil(Math.random()*4);
+	var authorsType = Math.floor(Math.random()*3);
 
 	var $textbook = $('<textbook></textbook>');
+	var getPhotos = new photoGetter(photoQuery,{
+		debug: params.debug
+	});
 
+	/*layout*/
 	$textbook.addClass('l'+params.layout);
-
 	for(var variantIndex = 0; variantIndex < params.variant.length; variantIndex++) {
 		$textbook.addClass('v-'+(variantIndex+1)+'-'+params.variant[variantIndex]);
 	}
 
+	/*title*/
 	var titleSize = 1 - (title.length - 25) / 80;
 	var $span = $('<span></span>').text(title).css('font-size',titleSize+'em');
 	$textbook.append(
 		($('<title></title>').append($span))
 	);
+
+	/*authors*/
 	$textbook.append(
 		$('<author></author>')
 	);
 	for(var i = 0; i < authorsTotal; i++) {
-		$textbook.find('author').append('<span>'+getAuthor(authorsType)+'</span>');
+		var author = getAuthor(authorsType);
+		authors.push(author)
+		$textbook.find('author').append('<span>'+author+'</span>');
 	}
 
+	/*art*/
 	getPhotos.done(function(photos){
 		$textbook.append(
 			$('<bg></bg>').css({'background-image':'url('+photos[0]+')'})
@@ -151,13 +160,20 @@ var makeBook = function(params) {
 		);
 	});
 
-	$('body').append($textbook);
+	$textbook.data('book',{
+		title: title,
+		authors: authors,
+		photos: photoQuery,
+		layout: params.layout,
+		variant: params.variant
+	});
 
-	$textbook[0].dispatchEvent(bookCreated);
+	$('body').append($textbook);
 
 }
 
-module.exports = function(){
+
+module.exports = (function(){
 
 	var lib = {};
 
@@ -169,4 +185,4 @@ module.exports = function(){
 	makeCss();
 
 	return lib;
-}
+})()

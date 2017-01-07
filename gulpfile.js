@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var webpack = require('webpack-stream');
 var uglify = require('gulp-uglify');
 var path = require('path');
-var WrapperPlugin = require('wrapper-webpack-plugin');
 var webshot = require('gulp-webshot');
 var fs = require('fs-extra');
 var gutil = require("gulp-util");
@@ -11,20 +10,13 @@ var env = require('./src/env.js');
 
 var webpackConfig = {
 	plugins: [
-		new webpack.webpack.ProvidePlugin({
-			Promise: 'es6-promise-promise'
-		}),
 		new webpack.webpack.DefinePlugin((function(){
 			var rt = {};
 			Object.keys(process.env).map(function(key){
 				rt['process.env.'+key] = '"'+process.env[key]+'"';
 			})
 			return rt;
-		})()),
-		new WrapperPlugin({
-			header: '/* Textbook */',
-			footer: "if(window.Textbook && typeof window.Textbook === 'function'){window.Textbook = window.Textbook()}"
-		})
+		})())
 	],
 	module: {
 		loaders: [

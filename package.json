@@ -27,7 +27,6 @@
     "raw-loader": "^0.5.1",
     "twit": "^2.2.5",
     "webpack-stream": "^3.2.0",
-    "webshot": "^0.18.0",
-    "wrapper-webpack-plugin": "0.1.11"
+    "webshot": "^0.18.0"
   }
 }
