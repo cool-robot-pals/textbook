@@ -36,19 +36,21 @@ gulp.task('tweet',function(done){
 			access_token:         env.twitterAccess,
 			access_token_secret:  env.twitterSecret
 		});
-		try {
-			var b64content = fs.readFileSync('build/book.jpg', { encoding: 'base64' });
-			T.post('media/upload', { media_data: b64content }, function (err, data, response) {
-				var params = { status: '', media_ids: [data.media_id_string] }
-				T.post('statuses/update', params, function (err, data, response) {
-					done(data)
-				});
+		var b64content = fs.readFileSync('build/book.jpg', { encoding: 'base64' });
+		T.post('media/upload', { media_data: b64content }, function (err, data, response) {
+			var params = { status: '', media_ids: [data.media_id_string] }
+			T.post('statuses/update', params, function (err, data, response) {
+				if(err) {
+					throw new gutil.PluginError({
+						plugin: 'tweet',
+						message: err
+					});
+				}
+				else {
+					done()
+				}
 			});
-		} catch(e) {
-			console.log('Exception caught');
-			console.log(e);
-			done();
-		}
+		});
 	} else {
 		throw new gutil.PluginError({
 			plugin: 'tweet',
