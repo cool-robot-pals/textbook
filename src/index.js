@@ -9,6 +9,7 @@ var layouts = require('data/layouts.js');
 var concepts = require('data/concepts.js');
 
 var layoutsTotal = Object.keys(layouts).length;
+var textbooks = [];
 
 
 var getAuthor = function(type) {
@@ -62,7 +63,6 @@ var getAllPossibleVariants = function(variants) {
 
 	iterator([],0);
 
-	console.log(possibles);
 	return possibles;
 
 }
@@ -160,13 +160,13 @@ var makeBook = function(params) {
 		);
 	});
 
-	$textbook.data('book',{
+	textbooks.push({
 		title: title,
 		authors: authors,
 		photos: photoQuery,
 		layout: params.layout,
 		variant: params.variant
-	});
+	})
 
 	$('body').append($textbook);
 
@@ -181,6 +181,8 @@ module.exports = (function(){
 	lib.layouts = layouts;
 	lib.makeBook = makeBook;
 	lib.getAllPossibleVariants = getAllPossibleVariants;
+
+	lib.textbooks = textbooks;
 
 	makeCss();
 

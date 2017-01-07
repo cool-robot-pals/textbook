@@ -84,6 +84,14 @@ gulp.task('webshot',function(done){
 	var options = {
 		renderDelay: 20000,
 		siteType: 'file',
+		onLoadFinished: function(){
+			for(var k in window.Textbook.textbooks[0]) {
+				console.log(k.toUpperCase()+' - '+JSON.stringify(window.Textbook.textbooks[0][k]))
+			}
+		},
+		onConsoleMessage: function(text){
+			gutil.log(text);
+		},
 		phantomPath: require('phantomjs2').path,
 		phantomConfig: {
 			'local-to-remote-url-access':'true',
