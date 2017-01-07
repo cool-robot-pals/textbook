@@ -6,7 +6,6 @@ var WrapperPlugin = require('wrapper-webpack-plugin');
 var webshot = require('gulp-webshot');
 var fs = require('fs-extra');
 var gutil = require("gulp-util");
-var Twit = require('twit')
 
 var env = require('./src/env.js');
 
@@ -54,8 +53,9 @@ var webpackConfig = {
 	}
 };
 
-gulp.task('tweet',function(done){
 
+gulp.task('tweet',function(done){
+	var Twit = require('twit')
 	if(env.twitterConsumerKey){
 		var T = new Twit({
 			consumer_key:         env.twitterConsumerKey,
@@ -84,13 +84,11 @@ gulp.task('tweet',function(done){
 			message: 'Environment is undefined'
 		});
 	}
-
 })
 
+
 gulp.task('webshot',function(done){
-
 	var webshot = require('webshot');
-
 	var options = {
 		renderDelay: 20000,
 		siteType: 'file',
@@ -107,7 +105,6 @@ gulp.task('webshot',function(done){
 			height: 1100
 		}
 	};
-
 	webshot('build/index.html', 'build/book.jpg', options, function(err) {
 		if(err) {
 			console.error(err);
@@ -116,8 +113,8 @@ gulp.task('webshot',function(done){
 			done();
 		}
 	});
-
 });
+
 
 gulp.task('_makefiles',function(done){
 	fs.removeSync('build');
@@ -130,11 +127,13 @@ gulp.task('_makefiles',function(done){
 	done();
 });
 
+
 gulp.task('_makejs', function() {
 	return gulp.src('src/index.js')
 		.pipe(webpack(webpackConfig))
 		.pipe(gulp.dest('build/'));
 });
+
 
 gulp.task('watch',function() {
 	webpackConfig.devtool = 'source-map';
@@ -144,9 +143,11 @@ gulp.task('watch',function() {
 		.pipe(gulp.dest('build/'));
 })
 
+
 gulp.task('default',
 	gulp.series('_makefiles','_makejs')
 );
+
 
 gulp.task('shitpost',
 	gulp.series('default','webshot','tweet')
