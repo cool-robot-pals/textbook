@@ -10,25 +10,52 @@ var Twit = require('twit')
 
 var env = require('./src/env.js');
 
-var webpackModule = {
-	loaders: [
-		{
-			test: /\.css$/, loader: "raw"
-		},
-		{
-			test: /\.mustache$/, loader: "raw"
-		},
-		{
-			test: /.js?$/,
-			loader: 'babel-loader',
-			query: {
-				presets: ['es2015']
+var webpackConfig = {
+	plugins: [
+		new webpack.webpack.ProvidePlugin({
+			Promise: 'es6-promise-promise'
+		}),
+		new webpack.webpack.DefinePlugin((function(){
+			var rt = {};
+			Object.keys(process.env).map(function(key){
+				rt['process.env.'+key] = '"'+process.env[key]+'"';
+			})
+			return rt;
+		})()),
+		new WrapperPlugin({
+			header: '/* Textbook */',
+			footer: "if(window.Textbook && typeof window.Textbook === 'function'){window.Textbook = window.Textbook()}"
+		})
+	],
+	module: {
+		loaders: [
+			{
+				test: /\.css$/, loader: "raw"
+			},
+			{
+				test: /\.mustache$/, loader: "raw"
+			},
+			{
+				test: /.js?$/,
+				loader: 'babel-loader',
+				query: {
+					presets: ['es2015']
+				}
 			}
-		}
-	]
+		]
+	},
+	output: {
+		filename: 'textbook.js',
+		library: 'Textbook',
+		libraryTarget: 'umd'
+	},
+	resolve: {
+		root: path.resolve('./src')
+	}
 };
 
 gulp.task('tweet',function(done){
+
 	if(env.twitterConsumerKey){
 		var T = new Twit({
 			consumer_key:         env.twitterConsumerKey,
@@ -57,6 +84,7 @@ gulp.task('tweet',function(done){
 			message: 'Environment is undefined'
 		});
 	}
+
 })
 
 gulp.task('webshot',function(done){
@@ -104,68 +132,17 @@ gulp.task('_makefiles',function(done){
 
 gulp.task('_makejs', function() {
 	return gulp.src('src/index.js')
-		.pipe(webpack({
-			output: {
-				filename: 'textbook.js',
-				library: 'Textbook',
-				libraryTarget: 'umd'
-			},
-			plugins: [
-				new webpack.webpack.ProvidePlugin({
-					Promise: 'es6-promise-promise'
-				}),
-				new webpack.webpack.DefinePlugin({
-					'process.env': {
-						TEXTBOOK_GOOGLE_CX: '"'+process.env.TEXTBOOK_GOOGLE_CX+'"',
-						TEXTBOOK_GOOGLE_KEY:  '"'+process.env.TEXTBOOK_GOOGLE_KEY+'"'
-					}
-				}),
-				new WrapperPlugin({
-					header: '/* Textbook */',
-					footer: "if(window.Textbook && typeof window.Textbook === 'function'){window.Textbook = window.Textbook()}"
-				})
-			],
-			module: webpackModule,
-			resolve: {
-				root: path.resolve('./src')
-			}
-		}))
+		.pipe(webpack(webpackConfig))
 		.pipe(gulp.dest('build/'));
 });
 
 gulp.task('watch',function() {
+	webpackConfig.devtool = 'source-map';
+	webpackConfig.watch = true;
 	return gulp.src('src/index.js')
-		.pipe(webpack({
-			watch: true,
-			devtool: 'source-map',
-			output: {
-				filename: 'textbook.js',
-				library: 'Textbook',
-				libraryTarget: 'umd'
-			},
-			plugins: [
-				new webpack.webpack.ProvidePlugin({
-					Promise: 'es6-promise-promise'
-				}),
-				new webpack.webpack.DefinePlugin({
-					'process.env': {
-						PHOTO_CID: '"'+process.env.PHOTO_CID+'"',
-						PHOTO_CS:  '"'+process.env.PHOTO_CS+'"'
-					}
-				}),
-				new WrapperPlugin({
-					header: '/* Textbook */',
-					footer: "if(window.Textbook && typeof window.Textbook === 'function'){window.Textbook = window.Textbook()}"
-				})
-			],
-			module: webpackModule,
-			resolve: {
-				root: path.resolve('./src')
-			}
-		}))
+		.pipe(webpack(webpackConfig))
 		.pipe(gulp.dest('build/'));
 })
-
 
 gulp.task('default',
 	gulp.series('_makefiles','_makejs')
