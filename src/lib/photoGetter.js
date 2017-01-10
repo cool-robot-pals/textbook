@@ -1,5 +1,4 @@
 var env = require('env.js');
-var concepts = require('data/concepts.js');
 var apiUrl = 'https://api.shutterstock.com/v2';
 
 function encodeAuthorization() {
@@ -12,7 +11,7 @@ function encodeAuthorization() {
 	return 'Basic ' + window.btoa(clientId + ':' + clientSecret);
 }
 
-module.exports = function(mock) {
+module.exports = function(query,mock) {
 	var dfd = jQuery.Deferred();
 	if(mock === true) {
 		dfd.resolve([
@@ -25,7 +24,7 @@ module.exports = function(mock) {
 			url: apiUrl + '/images/search',
 			dataType: 'json',
 			data: {
-				query: concepts[Math.floor(Math.random() * concepts.length)],
+				query: query,
 				image_type: 'photo',
 				orientation: 'vertical'
 			},
