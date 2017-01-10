@@ -1,15 +1,20 @@
 var env = require('env.js');
-var random = require('lib/random.js');
+var concepts = require('data/concepts.js');
+var apiUrl = 'https://api.shutterstock.com/v2';
 
-var apiUrl = 'https://www.googleapis.com/customsearch/v1';
+function encodeAuthorization() {
+	var clientId = env.clientId;
+	var clientSecret = env.clientSecret;
 
-module.exports = function(query,params) {
+	if (!clientId || !clientSecret) {
+		throw('Client id and/or client secret are missing in the API key section, with out these you wont be able to contact the API.');
+	}
+	return 'Basic ' + window.btoa(clientId + ':' + clientSecret);
+}
 
-	if(!params) var params = {};
-	if(!params.debug) params.debug = false;
-
+module.exports = function(mock) {
 	var dfd = jQuery.Deferred();
-	if(params.debug === true) {
+	if(mock === true) {
 		dfd.resolve([
 			'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Gameplay_of_Pokemon_Go.jpg/245px-Gameplay_of_Pokemon_Go.jpg',
 			'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Reina_restaurant_Istanbul.JPG/1920px-Reina_restaurant_Istanbul.JPG'
@@ -17,22 +22,20 @@ module.exports = function(query,params) {
 	}
 	else {
 		$.ajax({
-			url: apiUrl,
+			url: apiUrl + '/images/search',
 			dataType: 'json',
 			data: {
-				q: query
-				   + ' stock -quote -whisper -ecards -meme -screenshot',
-				safe: 'medium',
-				searchType: 'image',
-				imgSize: 'xlarge',
-				imgType: random(['photo','face','clipart']),
-				cx: env.googleSearchCx,
-				key: env.googleSearchKey,
+				query: concepts[Math.floor(Math.random() * concepts.length)],
+				image_type: 'photo',
+				orientation: 'vertical'
+			},
+			headers: {
+				Authorization: encodeAuthorization()
 			}
 		}).done(function(response){
 			dfd.resolve([
-				response.items[Math.floor(Math.random() * response.items.length)].link,
-				response.items[Math.floor(Math.random() * response.items.length)].link
+				response.data[Math.floor(Math.random() * response.data.length)].assets.preview.url,
+				response.data[Math.floor(Math.random() * response.data.length)].assets.preview.url
 			]);
 		});
 	}
