@@ -38,6 +38,7 @@ module.exports = [
 	"Economics",
 	"Electrical Engineering",
 	"Elementary Education",
+	"Energy",
 	"Engineering Science",
 	"English",
 	"Environmental Systems Engineering",
@@ -48,6 +49,8 @@ module.exports = [
 	"Food Science",
 	"Forest Science",
 	"Forest Technology",
+	"Game Theory",
+	"Gender Studies",
 	"General Science",
 	"Geography",
 	"Geosciences",
@@ -99,8 +102,8 @@ module.exports = [
 	"Statistics",
 	"Telecommunications",
 	"Theater",
+	"Video Game Design",
+	"Video Game Development",
 	"Wildlife and Fishery Science",
-	"Wildlife Technology",
-	"Gender Studies",
-	"Energy"
+	"Wildlife Technology"
 ];
