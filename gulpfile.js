@@ -24,6 +24,9 @@ var webpackConfig = {
 				test: /\.css$/, loader: "raw"
 			},
 			{
+				test: /\.txt$/, loader: "raw"
+			},
+			{
 				test: /\.mustache$/, loader: "raw"
 			},
 			{
