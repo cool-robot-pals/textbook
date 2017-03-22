@@ -1,107 +1,89 @@
-Accounting
-Actuarial Science
-Advertising
-Agriculture
-Agricultural Engineering
-Agricultural Business Management
-Agriculture Economics
-Animal Bioscience
-Animal Sciences
-Anthropology
-Applied Mathematics
-Archaeology
-Architectural Engineering
-Architecture
-Art History
-Studio Art
-Art Education
-Biobehavioral Health
-Biochemistry
-Bioengineering
-Biological Engineering
-Biology
-Biophysics
-Biotechnology
-Business Administration
-Business Logistics
-Chemical Engineering
-Chemistry
-Children
-Civil Engineering
-Computer Engineering
-Computer Science
-Crime, Law, and Justice
-Dance
-Earth Sciences
-Ethics
-Economics
-Electrical Engineering
-Elementary Education
-Energy
-Engineering Science
-English
-Environmental Systems Engineering
-Environmental Sciences
-Environmental Resource Management
-Film and Video
-Finance
-Food Science
-Forest Science
-Forest Technology
-Game Theory
-Gender Studies
-General Science
-Geography
-Geosciences
-Graphic Design and Photography
-Health and Physical Education
-Health Policy and Administration
-History
-Horticulture
-Hotel and Restaurant Management
-Human Development & Family Studies
-Individual and Family Studies
-Industrial Engineering
-Information Sciences and Technology
 Journalism
-Kinesiology
-Landscape Architecture
-Law Enforcement and Correction
-Marine Biology
-Marketing
-Mathematics
-Mechanical Engineering
-Media Studies
-Meteorology
-Microbiology
-Mineral Economics
-Modern Languages
-Music Education
-Nuclear Engineering
-Nursing
-Nutrition
-Philosophy
-Physics
-Physiology
-Political Science
-Politics
-Pre-medicine
-Psychology
-Public Relations
-Public Health
-Real Estate
-Recreation and Parks
-Rehabilitation Services
-Religious Studies
-Secondary Education
-Sociology
-Social Work
-Special Education
-Speech Communication
-Statistics
-Telecommunications
-Theater
+Ethics
 Video Game Design
 Video Game Development
-Wildlife and Fishery Science
-Wildlife Technology
+Gender Studies
+Medical & Life Sciences
+Athletic Training
+Biology
+Chemistry
+Environmental Science
+Exercise Science
+Kinesiology
+Fisheries and Wildlife
+Food Science
+Forest Management
+Marine Science
+Nursing
+Organic Farming
+Urban Farming
+Pharmacy
+Physicians Assistant
+Dental Medicine
+Medical Sciences
+Veterinary Medicine
+Visual & Performance Arts
+Apparel/Textile Design
+Architecture
+Dance
+French
+Geology
+Film
+Studio Art
+Fine Art
+Graphic Design
+Industrial Design
+Interior Design
+Landscape Architecture
+Music
+Theatre
+Urban Planning
+Web Design
+Digital Media
+Liberal Arts
+Arts Management
+Education
+Emergency Management
+English
+Writing
+Equine Science
+Family & Child Science
+History
+Journalism
+Language Studies
+Non-Profit Management
+Peace/Conflict Studies
+Philosophy
+Political Science
+Social Science
+Sports Turf/Golf
+Women Studies
+Engineering & Technology
+Aerospace Engineering
+Astronomy
+Aviation/Aeronautics
+Biomedical Engineering
+Chemical Engineering
+Civil Engineering
+Computer Science
+Electrical Engineering
+Energy Science
+Engineering
+Imaging Science
+Industrial Engineering
+Industrial Technology
+Materials Science
+Mathematics
+Mechanical Engineering
+Accounting
+Business
+Construction Management
+Finance & Economics
+Hospitality Management
+Human Resources Mgmt
+Information Systems
+Insurance & Risk Mgmt
+National Parks Management
+Public Health Administration
+Sport Management
+Supply Chain Mgmt
