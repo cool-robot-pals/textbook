@@ -6,6 +6,7 @@
   "scripts": {
     "start": "echo 👌",
     "gulp": "./node_modules/.bin/gulp",
+    "test": "gulp",
     "shitpost": "gulp shitpost"
   },
   "license": "GPL-3.0",
