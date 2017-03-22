@@ -1,12 +1,14 @@
 var photoGetter = require('lib/photoGetter.js');
 var makeColors = require('lib/makeColors.js');
 var random = require('lib/random.js');
+var txtToArr = require('lib/txtToArr.js').default;
 
-var titles = require('data/majors.js');
-var names = require('data/names.js');
-var wrap = require('data/wrap.js');
+var titles = txtToArr(require('data/majors.txt'));
+var names = txtToArr(require('data/names.txt'));
+var wrap = txtToArr(require('data/wrap.txt'));
+var concepts = txtToArr(require('data/concepts.txt'));
+
 var layouts = require('data/layouts.js');
-var concepts = require('data/concepts.js');
 
 var layoutsTotal = Object.keys(layouts).length;
 var textbooks = [];

@@ -15,7 +15,7 @@ module.exports = function(query,options) {
 	if(!options) options = {};
 	if(!options.debug) options.debug = false;
 	var dfd = jQuery.Deferred();
-	if(options.debug === true) {
+	if(!env.clientId || options.debug === true) {
 		dfd.resolve([
 			'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Gameplay_of_Pokemon_Go.jpg/245px-Gameplay_of_Pokemon_Go.jpg',
 			'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Reina_restaurant_Istanbul.JPG/1920px-Reina_restaurant_Istanbul.JPG'
