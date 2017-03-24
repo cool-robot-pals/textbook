@@ -5,6 +5,7 @@ Video Game Design
 Video Game Development
 Gender Studies
 Politics
+Real State
 #just copypasted whatevs
 Medical & Life Sciences
 Athletic Training
@@ -83,7 +84,7 @@ Business
 Construction Management
 Finance & Economics
 Hospitality Management
-Human Resources Mgmt
+Human Resources
 Information Systems
 Insurance & Risk Mgmt
 National Parks Management
