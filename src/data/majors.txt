@@ -1,93 +1,165 @@
 #extras
 Journalism
-Ethics
 Video Game Design
 Video Game Development
 Gender Studies
 Politics
 Real State
 #just copypasted whatevs
-Medical & Life Sciences
-Athletic Training
-Biology
-Chemistry
-Environmental Science
-Exercise Science
-Kinesiology
-Fisheries and Wildlife
-Food Science
-Forest Management
-Marine Science
-Nursing
-Organic Farming
-Urban Farming
-Pharmacy
-Physicians Assistant
-Dental Medicine
-Medical Sciences
-Veterinary Medicine
-Visual & Performance Arts
-Apparel/Textile Design
-Architecture
-Dance
-French
-Geology
-Film
-Studio Art
-Fine Art
-Graphic Design
-Industrial Design
-Interior Design
-Landscape Architecture
-Music
-Theatre
-Urban Planning
-Web Design
-Digital Media
-Liberal Arts
-Arts Management
-Education
-Emergency Management
-English
-Writing
-Equine Science
-Family & Child Science
-History
-Journalism
-Language Studies
-Non-Profit Management
-Peace/Conflict Studies
-Philosophy
-Political Science
-Social Science
-Sports Turf/Golf
-Women Studies
-Engineering & Technology
-Aerospace Engineering
-Astronomy
-Aviation/Aeronautics
-Biomedical Engineering
-Chemical Engineering
-Civil Engineering
-Computer Science
-Electrical Engineering
-Energy Science
-Engineering
-Imaging Science
-Industrial Engineering
-Industrial Technology
-Materials Science
-Mathematics
-Mechanical Engineering
+
 Accounting
-Business
+Accounting and Information Systems
+Ancient History
+Antarctic Studies
+Anthropology
+Applied Psychology
+Art Curatorship
+Art History
+Art Theory
+Astronomy
+Audiology
+Biochemistry
+Bioengineering
+Biological Sciences
+Biosecurity
+Biotechnology
+Botany
+Business Administration
+Business Economics
+Business Management
+Executive Development
+Cellular and Molecular Biology
+Chemical and Process Engineering
+Chemistry
+Child and Family Psychology
+Chinese
+Cinema Studies
+Civil Engineering
+Classical Studies
+Classics
+Clinical Psychology
+Clinical Teaching
+Communication Disorders
+Computational and Applied Mathematics
+Computer-Assisted Language Learning
+Computer Engineering
+Computer Science
 Construction Management
-Finance & Economics
-Hospitality Management
-Human Resources
+Counselling
+Creative Writing
+Criminal Justice
+Cultural Studies
+Development Studies
+Digital Humanities
+Diplomacy and International Relations
+Early Childhood Teacher Education
+Earthquake Engineering
+Ecology
+Economics
+Education
+e-Learning
+Electrical Engineering
+Engineering
+Engineering Geology
+Engineering Management
+Engineering Mathematics
+English
+English Language
+Environmental Science
+Ethics
+European Studies
+European Union Studies
+Evolutionary Biology
+Film
+Finance
+Financial Engineering
+Fine Arts
+Fire Engineering
+Forest Engineering
+Forestry
+French
+Freshwater Management
+Geographic Information Science
+Geography
+Geology
+German
+Graphic Design
+Hazard and Disaster Management
+Health Sciences
+Higher Education
+History
+Hōaka Pounamu
+Immersion Teaching
+Human Interface Technology
+Human Resource Management
+Human Services
+Inclusive and Special Education
+Industrial and Organisational Psychology
 Information Systems
-Insurance & Risk Mgmt
-National Parks Management
-Public Health Administration
-Sport Management
-Supply Chain Mgmt
+International Business
+International Law and Politics
+Japanese
+Journalism
+Law
+Leadership
+Learning Support
+Linguistics
+Literacy
+Management
+Management Science
+Māori
+Indigenous Studies
+Marketing
+Mathematical Physics
+Mathematics
+Mathematics and Philosophy
+Mechanical Engineering
+Mechatronics Engineering
+Media and Communication
+Medical Physics
+Microbiology
+Music
+Natural Resources Engineering
+Operations and Supply Chain Management
+Pacific Studies
+Painting
+Palliative Care
+Philosophy
+Photography
+Physical Education
+Physics
+Plant Biology
+Political Science
+Primary Teacher Education
+Printmaking
+Professional Development
+Psychology
+Public Safety
+Resilience and Sustainability
+Russian
+Science and Entrepreneurship
+Science Education
+Sculpture
+Seafood Sector Management
+Secondary Teacher Education
+Social Work
+Sociology
+Software Engineering
+Soil Science
+South Asia Studies*
+Spanish
+Specialist Teaching
+Speech and Language Pathology
+Speech and Language Sciences
+Sport Coaching
+Statistics
+Strategic Leadership
+Strategy and Entrepreneurship
+Taxation and Accounting
+Teacher Education
+Teaching and Learning
+Te Reo Māori
+Tertiary Teaching
+Transportation Engineering
+Water Resource Management
+Zoology
